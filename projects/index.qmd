@@ -1,0 +1,11 @@
+---
+title: "Projects"
+description: "Hardware and firmware builds, and geospatial analysis from coursework."
+listing:
+  contents: "*/index.qmd"
+  type: default
+  sort: "order"
+  fields: [image, title, description, categories]
+  image-height: 140px
+  categories: true
+---

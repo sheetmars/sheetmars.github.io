@@ -1,0 +1,77 @@
+/*-- scss:defaults --*/
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap');
+
+$paper:   #F3F5F4;
+$ink:     #16212B;
+$muted:   #56636E;
+$water:   #1E5A99;
+$contour: #A8794F;
+$rule:    #D3DBD8;
+
+$body-bg: $paper;
+$body-color: $ink;
+$link-color: $water;
+$primary: $water;
+$font-family-sans-serif: "Source Sans 3", system-ui, sans-serif;
+$headings-font-family: "Archivo", system-ui, sans-serif;
+$headings-font-weight: 700;
+$headings-color: $ink;
+$font-size-root: 18px;
+$line-height-base: 1.6;
+$navbar-bg: $paper;
+$navbar-fg: $ink;
+$navbar-hl: $water;
+$footer-bg: $paper;
+$border-color: $rule;
+$border-radius: 4px;
+$code-color: $ink;
+
+/*-- scss:rules --*/
+h1, h2, h3, .title { font-stretch: 112%; letter-spacing: -0.01em; }
+h1.title { font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.1; }
+h2 { font-size: 1.45rem; margin-top: 2.4rem; padding-top: 0; border-bottom: none; }
+h3 { font-size: 1.1rem; }
+.navbar { border-bottom: 1px solid $rule; }
+.navbar-brand .navbar-title { font-family: $headings-font-family; font-stretch: 112%; font-weight: 700; }
+a { text-underline-offset: 0.18em; }
+:focus-visible { outline: 3px solid rgba($water, .55); outline-offset: 2px; }
+.quarto-title-meta-heading { color: $muted; }
+.description, .subtitle { color: $muted; }
+figure img, .figure img, p > img { border: 1px solid $rule; background: #fff; }
+.figure-caption, figcaption { color: $muted; font-size: .88rem; }
+
+/* Home hero */
+.hero { position: relative; padding: 4.5rem 0 3.5rem; margin-bottom: 1.5rem; overflow: hidden; }
+.hero .contours { position: absolute; inset: 0 0 0 30%; z-index: 0; pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse 70% 75% at 60% 50%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 75% at 60% 50%, #000 40%, transparent 100%); }
+.hero .contours svg { width: 100%; height: 100%; }
+.hero .contours path.c { stroke: rgba($contour, .32); stroke-width: 1; }
+.hero .contours path.idx { stroke: rgba($contour, .6); stroke-width: 1.6; }
+.hero > *:not(.contours) { position: relative; z-index: 1; }
+.hero h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); font-stretch: 125%; font-weight: 800; line-height: .98; margin: 0 0 1.2rem; max-width: 12ch; }
+.hero p.lede { font-size: 1.25rem; max-width: 34rem; margin-bottom: 1.2rem; }
+.hero .links a { margin-right: 1.4rem; font-weight: 600; }
+@media (max-width: 767px) { .hero .contours { inset: -10% -60% 40% 0; opacity: .7; } }
+
+/* Project listing: rows, not cards */
+.quarto-listing-default .quarto-post { border-bottom: 1px solid $rule; padding: 1.4rem 0; margin: 0; }
+.quarto-listing-default .quarto-post .thumbnail img { border: 1px solid $rule; }
+.quarto-listing-default .listing-title { font-family: $headings-font-family; font-stretch: 110%; font-weight: 700; font-size: 1.2rem; }
+.quarto-listing-default .listing-description { color: $muted; }
+div.quarto-post.image-right { display: grid; grid-template-columns: 1fr minmax(0, 34%); grid-template-areas: "body thumbnail"; gap: 1.5rem; }
+div.quarto-post .metadata { display: none; }
+div.quarto-post .body { grid-area: body; }
+div.quarto-post .thumbnail { grid-area: thumbnail; }
+@media (max-width: 575px) { div.quarto-post.image-right { grid-template-columns: 1fr; grid-template-areas: "thumbnail" "body"; } }
+div.quarto-post .listing-categories .listing-category, .quarto-title .quarto-categories .quarto-category { text-transform: none; letter-spacing: 0; font-size: .8rem; opacity: 1; background: transparent; border: 1px solid $rule; color: $muted; font-size: .78rem; border-radius: 999px; }
+
+/* Case study facts */
+.facts { display: grid; grid-template-columns: max-content 1fr; gap: .35rem 1.4rem; margin: 1.5rem 0 2rem; padding: 1rem 0; border-top: 1px solid $rule; border-bottom: 1px solid $rule; font-size: .95rem; }
+.facts dt { color: $muted; font-weight: 400; }
+.facts dd { margin: 0; }
+@media (max-width: 575px) { .facts { grid-template-columns: 1fr; } .facts dd { margin-bottom: .5rem; } }
+table { font-size: .95rem; }
+.result-table td:not(:first-child), .result-table th:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+video { width: 100%; border: 1px solid $rule; background: #fff; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

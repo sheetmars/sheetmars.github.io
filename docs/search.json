@@ -1,0 +1,205 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Matthew McAnanama",
+    "section": "",
+    "text": "Geomatics student at the University of Waterloo. I build sensor hardware and firmware, and I turn location data into maps and decisions.\n  See projectsGitHubAbout me\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nArcGIS Pro\n\n\nNetwork analysis\n\n\nLocation-allocation\n\n\n\nNetwork analysis of fire response times in Waterloo Region, comparing two proposed station sites.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nArcGIS Pro\n\n\nRaster analysis\n\n\nMulti-criteria analysis\n\n\n\nMulti-criteria raster suitability model with a 54-run weight sensitivity analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nArcGIS Pro\n\n\nGeocoding\n\n\nTemporal mapping\n\n\n\nGeocoding about 72,500 permit records to map where and when new construction happened, 1999–2022.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nArcGIS Pro\n\n\nCartography\n\n\nData cleaning\n\n\n\nComparing hexagon choropleths and graduated symbols for 2023 police occurrence data.\n\n\n\n\n\n\n\n\n\nNo matching items\n\n\nAll projects"
+  },
+  {
+    "objectID": "index.html#selected-work",
+    "href": "index.html#selected-work",
+    "title": "Matthew McAnanama",
+    "section": "",
+    "text": "ArcGIS Pro\n\n\nNetwork analysis\n\n\nLocation-allocation\n\n\n\nNetwork analysis of fire response times in Waterloo Region, comparing two proposed station sites.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nArcGIS Pro\n\n\nRaster analysis\n\n\nMulti-criteria analysis\n\n\n\nMulti-criteria raster suitability model with a 54-run weight sensitivity analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nArcGIS Pro\n\n\nGeocoding\n\n\nTemporal mapping\n\n\n\nGeocoding about 72,500 permit records to map where and when new construction happened, 1999–2022.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nArcGIS Pro\n\n\nCartography\n\n\nData cleaning\n\n\n\nComparing hexagon choropleths and graduated symbols for 2023 police occurrence data.\n\n\n\n\n\n\n\n\n\nNo matching items\n\n\nAll projects"
+  },
+  {
+    "objectID": "projects/waterloo-occurrences/index.html",
+    "href": "projects/waterloo-occurrences/index.html",
+    "title": "Mapping police occurrences in Waterloo Region",
+    "section": "",
+    "text": "Total 2023 occurrences in 0.5 km² hexagons, with an inset of the City of Waterloo."
+  },
+  {
+    "objectID": "projects/waterloo-occurrences/index.html#approach",
+    "href": "projects/waterloo-occurrences/index.html#approach",
+    "title": "Mapping police occurrences in Waterloo Region",
+    "section": "Approach",
+    "text": "Approach\nThe occurrence CSV stored each location as one UTM “easting, northing” text field, which ArcGIS Pro can’t plot. I split it into separate coordinate columns, converted the records to points, and aggregated them to a 0.5 km² hexagon grid. I mapped total occurrences and individual types (assaults, fires and others) two ways: as a hexagon choropleth and as graduated symbols. Each map includes an inset of the City of Waterloo around the two universities and the college."
+  },
+  {
+    "objectID": "projects/waterloo-occurrences/index.html#choropleth-vs-graduated-symbols",
+    "href": "projects/waterloo-occurrences/index.html#choropleth-vs-graduated-symbols",
+    "title": "Mapping police occurrences in Waterloo Region",
+    "section": "Choropleth vs graduated symbols",
+    "text": "Choropleth vs graduated symbols\n\n\n\n\n\n\n\n\n\nTotal occurrences as a hexagon choropleth.\n\n\n\n\n\n\n\nTotal occurrences as graduated symbols.\n\n\n\n\n\n\n\n\n\nAssaults as a hexagon choropleth.\n\n\n\n\n\n\n\nAssaults as graduated symbols."
+  },
+  {
+    "objectID": "projects/waterloo-occurrences/index.html#results",
+    "href": "projects/waterloo-occurrences/index.html#results",
+    "title": "Mapping police occurrences in Waterloo Region",
+    "section": "Results",
+    "text": "Results\nOccurrences concentrate in the cores of Kitchener, Waterloo and Cambridge, with cells reaching several times the counts of the surrounding townships. Around the post-secondary campuses, activity clusters along University Avenue between Wilfrid Laurier and the east side of the University of Waterloo, the busiest stretch between the institutions."
+  },
+  {
+    "objectID": "projects/waterloo-occurrences/index.html#limitations",
+    "href": "projects/waterloo-occurrences/index.html#limitations",
+    "title": "Mapping police occurrences in Waterloo Region",
+    "section": "Limitations",
+    "text": "Limitations\n\nThese are raw counts. Because the cities hold most of the population, counts largely track where people are. Dividing by population or by daytime activity would show where occurrences are disproportionately high.\nRecorded occurrences depend on reporting, so lower counts in rural areas partly reflect fewer people around to report incidents."
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Where should the next fire station go?\n\n\n\n\n\n\nArcGIS Pro\n\n\nNetwork analysis\n\n\nLocation-allocation\n\n\n\nNetwork analysis of fire response times in Waterloo Region, comparing two proposed station sites.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSiting wind farms in Huron County\n\n\n\n\n\n\nArcGIS Pro\n\n\nRaster analysis\n\n\nMulti-criteria analysis\n\n\n\nMulti-criteria raster suitability model with a 54-run weight sensitivity analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGeocoding 24 years of Kitchener building permits\n\n\n\n\n\n\nArcGIS Pro\n\n\nGeocoding\n\n\nTemporal mapping\n\n\n\nGeocoding about 72,500 permit records to map where and when new construction happened, 1999–2022.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMapping police occurrences in Waterloo Region\n\n\n\n\n\n\nArcGIS Pro\n\n\nCartography\n\n\nData cleaning\n\n\n\nComparing hexagon choropleths and graduated symbols for 2023 police occurrence data.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS on a basketball court: shot accuracy maps\n\n\n\n\n\n\nArcGIS Pro\n\n\nTessellation\n\n\nCustom coordinate systems\n\n\n\nHexagon shot-percentage maps on a custom court coordinate system, comparing players and seasons.\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects/wind-turbine-siting/index.html",
+    "href": "projects/wind-turbine-siting/index.html",
+    "title": "Siting wind farms in Huron County",
+    "section": "",
+    "text": "Suitability for wind turbines across Huron County with the baseline weights (5 = most suitable)."
+  },
+  {
+    "objectID": "projects/wind-turbine-siting/index.html#approach",
+    "href": "projects/wind-turbine-siting/index.html#approach",
+    "title": "Siting wind farms in Huron County",
+    "section": "Approach",
+    "text": "Approach\n1. Build the factors. I clipped every layer to the county. For each constraint I created four buffer rings, starting from a minimum setback (for example, 550 m from buildings) and getting more suitable with distance. I then converted each to a raster on a shared 1–5 suitability scale. The Wind Atlas data had to be converted in QGIS before ArcGIS Pro could read it.\n2. Weight and overlay. I combined the six factors in a weighted overlay:\n\n\n\nFactor\nWeight\n\n\n\n\nWind speed at 30 m\n30 %\n\n\nDistance from buildings\n20 %\n\n\nDistance from airports\n15 %\n\n\nDistance from urban areas\n15 %\n\n\nDistance from roads\n10 %\n\n\nDistance from wooded areas\n10 %\n\n\n\nWind speed gets the most weight because without wind there’s no power. Buildings come next because they block wind and signal people nearby. Roads and woodland come last because they can be built around or cleared.\n3. Test the weights. The weights are a judgement call, so I tested how much the answer depends on them. I reduced each factor’s weight in 10 % steps, from 90 % of its value down to 10 %, and redistributed the difference to the others. That gave 54 alternative suitability rasters. I then took the per-cell standard deviation across all 54 and classed cells with low variation (below 0.25) as stable.\n\n\n\n\n\n\n\n\n\nPer-cell standard deviation across the 54 weight scenarios. Darker cells change less when the weights change.\n\n\n\n\n\n\n\nCells whose suitability stays stable under every weighting (green)."
+  },
+  {
+    "objectID": "projects/wind-turbine-siting/index.html#result",
+    "href": "projects/wind-turbine-siting/index.html#result",
+    "title": "Siting wind farms in Huron County",
+    "section": "Result",
+    "text": "Result\nA good site has to be both highly suitable with the baseline weights (class 4–5) and stable across the sensitivity runs. Large stable areas in the centre of the county were ruled out because they’re stable at only moderate or low suitability. Two areas pass both tests:\n\n\n\n\n\n\n\n\n\nSite 1: northern and southern Ashfield-Colborne-Wawanosh.\n\n\n\n\n\n\n\nSite 2: centre-west to north-west Bluewater, near the Lake Huron shore where wind speeds are highest."
+  },
+  {
+    "objectID": "projects/wind-turbine-siting/index.html#limitations",
+    "href": "projects/wind-turbine-siting/index.html#limitations",
+    "title": "Siting wind farms in Huron County",
+    "section": "Limitations",
+    "text": "Limitations\n\nThe 1–5 scores for each buffer ring are assumptions. A real study would base setbacks on Ontario’s renewable energy regulations and add constraints like protected areas and grid connection.\nWind Atlas data is a modelled long-term average at 30 m, below a modern turbine’s hub height."
+  },
+  {
+    "objectID": "projects/nba-shot-maps/index.html",
+    "href": "projects/nba-shot-maps/index.html",
+    "title": "GIS on a basketball court: shot accuracy maps",
+    "section": "",
+    "text": "Kyle Lowry’s shooting percentage by court location, 2017–18 season."
+  },
+  {
+    "objectID": "projects/nba-shot-maps/index.html#approach",
+    "href": "projects/nba-shot-maps/index.html#approach",
+    "title": "GIS on a basketball court: shot accuracy maps",
+    "section": "Approach",
+    "text": "Approach\nShot locations come in court coordinates, not latitude and longitude. I used a court image as the reference frame, plotted every shot as a point on it, and aggregated the shots into a hexagon grid. For each cell I calculated made ÷ attempted and classed it from 0–10 % up to over 75 %. The same workflow handles filtered subsets, such as one player or the team without that player."
+  },
+  {
+    "objectID": "projects/nba-shot-maps/index.html#results",
+    "href": "projects/nba-shot-maps/index.html#results",
+    "title": "GIS on a basketball court: shot accuracy maps",
+    "section": "Results",
+    "text": "Results\n\n\n\n\n\n\n\n\n\nThe 2017–18 Raptors as a team.\n\n\n\n\n\n\n\nThe Raptors without Lowry: almost identical to the full team.\n\n\n\n\n\nLowry was most accurate around the left, top and top-right of the three-point line, while the team as a whole was strongest just inside the arc. Removing Lowry barely changes the team map because his shots are a small share of the total.\n\n\n\n\n\n\n\n\n\nLeBron James, 2022–23.\n\n\n\n\n\n\n\nMichael Jordan, 2002–03 (his final season).\n\n\n\n\n\nBoth are highly accurate at the rim and in pockets of the mid-range. Jordan took far more mid-range shots, while James took more shots at or just behind the three-point line."
+  },
+  {
+    "objectID": "projects/nba-shot-maps/index.html#limitations",
+    "href": "projects/nba-shot-maps/index.html#limitations",
+    "title": "GIS on a basketball court: shot accuracy maps",
+    "section": "Limitations",
+    "text": "Limitations\n\nCells with only a handful of attempts can show 0 % or 100 % by chance. A minimum-attempts threshold, or shading by attempt count, would make the maps more honest."
+  },
+  {
+    "objectID": "projects/kitchener-permits/index.html",
+    "href": "projects/kitchener-permits/index.html",
+    "title": "Geocoding 24 years of Kitchener building permits",
+    "section": "",
+    "text": "New construction permits, 1999–2022, aggregated to a 0.25 km² hexagon grid."
+  },
+  {
+    "objectID": "projects/kitchener-permits/index.html#approach",
+    "href": "projects/kitchener-permits/index.html#approach",
+    "title": "Geocoding 24 years of Kitchener building permits",
+    "section": "Approach",
+    "text": "Approach\nThe permit records had street addresses but no coordinates. I built an address locator from the city’s address-point layer, geocoded every permit, cleaned the results, and filtered to the “new construction” type. To make the patterns readable, I aggregated permits to a hexagonal grid and enabled time on the layer to animate it year by year.\n\n\n\nMatched\nUnmatched\nTied\nMatch rate\n\n\n\n\n69,830\n2,729\n1\n96.2 %\n\n\n\nI checked the unmatched addresses (for example, 2396 King St E) and found they point to locations in the middle of a road rather than a building. That’s why they’re missing from the city’s list of valid addresses: the problem is in the permit records, not the locator."
+  },
+  {
+    "objectID": "projects/kitchener-permits/index.html#results",
+    "href": "projects/kitchener-permits/index.html#results",
+    "title": "Geocoding 24 years of Kitchener building permits",
+    "section": "Results",
+    "text": "Results\nNew construction is concentrated on the edges of the city, in Trussler, Huron Park, Doon South, Williamsburg, Beechwood Forest and Grand River South. Those are the residential areas that grew during this period. A few cells near the core and along major roads pass 60 permits.\n\n  \n\n\n\n\nPermits issued per year.\n\n\nTwo peaks stand out: 2002–2007, during a period of strong residential growth, and 2014–2016, which lines up with ION light rail construction."
+  },
+  {
+    "objectID": "projects/kitchener-permits/index.html#limitations",
+    "href": "projects/kitchener-permits/index.html#limitations",
+    "title": "Geocoding 24 years of Kitchener building permits",
+    "section": "Limitations",
+    "text": "Limitations\n\nHexagon counts reflect how many addresses fall in each cell as well as how much building happened, so dense subdivisions score higher partly because they have more addresses. Normalising by address count would separate the two.\nThe link between the 2014–2016 peak and ION construction is a correlation I noticed, not something I tested."
+  },
+  {
+    "objectID": "projects/fire-station-coverage/index.html",
+    "href": "projects/fire-station-coverage/index.html",
+    "title": "Where should the next fire station go?",
+    "section": "",
+    "text": "Travel time of 10 minutes or less from the current stations plus both proposed sites, with recorded fire calls."
+  },
+  {
+    "objectID": "projects/fire-station-coverage/index.html#the-question",
+    "href": "projects/fire-station-coverage/index.html#the-question",
+    "title": "Where should the next fire station go?",
+    "section": "The question",
+    "text": "The question\nIn this scenario, the region is weighing two sites for a new fire station: New Hamburg in the west and Elmira in the north. I compared how each one would change response times and workload across the existing 16-station network."
+  },
+  {
+    "objectID": "projects/fire-station-coverage/index.html#approach",
+    "href": "projects/fire-station-coverage/index.html#approach",
+    "title": "Where should the next fire station go?",
+    "section": "Approach",
+    "text": "Approach\n\nTravel-time cost. I added a travel-time field to every road segment (length ÷ posted speed, in minutes) and built a network dataset with that cost and a one-way restriction.\nService areas. I generated 2-, 5- and 10-minute drive-time polygons for the current network, each proposed site on its own, and every combination.\nLocation-allocation. I assigned every recorded fire call to its nearest station by drive time under four scenarios (current, + New Hamburg, + Elmira, + both), then summarised average response time, calls left outside the 10-minute area, and calls per station."
+  },
+  {
+    "objectID": "projects/fire-station-coverage/index.html#results",
+    "href": "projects/fire-station-coverage/index.html#results",
+    "title": "Where should the next fire station go?",
+    "section": "Results",
+    "text": "Results\n\n\n\n\n\n\n\n\n\nScenario\nAvg. response time\nCalls outside 10 min\nCalls allocated to new station\n\n\n\n\nCurrent stations\n3.06 min\n296\nn/a\n\n\n+ Elmira\n2.89 min\n162\n135\n\n\n+ New Hamburg\n2.89 min\n165\n162\n\n\n+ Both\n2.72 min\n58\n297\n\n\n\nOn average response time and coverage the two sites are nearly tied. Each cuts the average by about 10 seconds and brings roughly 130 more calls inside the 10-minute area. The difference shows up on the map. Most calls near Elmira are already reached within 10 minutes by the existing network, and the region north of Elmira has very few calls. New Hamburg covers a cluster of calls on the western edge that the current network barely reaches, and it takes on 27 more calls than Elmira would.\n\n\n\n\n\n\n\n\n\nNew Hamburg on its own: the 10-minute area covers the western cluster of calls.\n\n\n\n\n\n\n\nElmira on its own: much of its area overlaps calls the existing network already reaches.\n\n\n\n\n\nRecommendation: build at New Hamburg. It relieves more of the network, serves an area the current stations don’t reach quickly, and matches Elmira on average response time.\n\n\n\nThe current 16-station network for comparison."
+  },
+  {
+    "objectID": "projects/fire-station-coverage/index.html#limitations",
+    "href": "projects/fire-station-coverage/index.html#limitations",
+    "title": "Where should the next fire station go?",
+    "section": "Limitations",
+    "text": "Limitations\n\nTravel times use posted speed limits with no turn penalties, traffic or emergency-vehicle behaviour, so absolute times are optimistic. The comparison between sites is more reliable than the minutes themselves.\nThe analysis uses one historical set of calls. A full siting study would also look at population growth and where calls are likely to come from in future."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I’m a third-year Geomatics (geospatial data science) student at the University of Waterloo, with a minor in Computing. I’m looking for co-op placements for the January–April and May–August 2027 terms."
+  },
+  {
+    "objectID": "about.html#what-i-work-with",
+    "href": "about.html#what-i-work-with",
+    "title": "About",
+    "section": "What I work with",
+    "text": "What I work with\nGIS and remote sensing: ArcGIS Pro, QGIS, network analysis, multi-criteria raster overlay, geocoding, Sentinel-1 SAR, Landsat classification, LiDAR\nProgramming: Python (Polars, GeoPandas, Matplotlib), C/C++ for embedded targets, Git\nHardware and firmware: Arduino, Nordic nRF5340 / Thingy:53 with Zephyr RTOS, I2C and SPI sensor drivers, GPS receivers"
+  },
+  {
+    "objectID": "about.html#courses-and-certificates",
+    "href": "about.html#courses-and-certificates",
+    "title": "About",
+    "section": "Courses and certificates",
+    "text": "Courses and certificates\n\nNordic Developer Academy: nRF Connect SDK Fundamentals\nNordic Developer Academy: Bluetooth Low Energy Fundamentals"
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About",
+    "section": "Contact",
+    "text": "Contact\n\nGitHub: sheetmars"
+  }
+]

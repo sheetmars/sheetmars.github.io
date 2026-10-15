@@ -1,0 +1,25 @@
+---
+title: "About"
+---
+
+I'm a third-year Geomatics (geospatial data science) student at the University of Waterloo, with a minor in Computing. I'm looking for co-op placements for the January–April and May–August 2027 terms.
+
+<!-- Add a few sentences in your own words: what draws you to geospatial and sensing work, and what you want to build. -->
+
+## What I work with
+
+**GIS and remote sensing:** ArcGIS Pro, QGIS, network analysis, multi-criteria raster overlay, geocoding, Sentinel-1 SAR, Landsat classification, LiDAR
+
+**Programming:** Python (Polars, GeoPandas, Matplotlib), C/C++ for embedded targets, Git
+
+**Hardware and firmware:** Arduino, Nordic nRF5340 / Thingy:53 with Zephyr RTOS, I2C and SPI sensor drivers, GPS receivers
+
+## Courses and certificates
+
+- Nordic Developer Academy: nRF Connect SDK Fundamentals
+- Nordic Developer Academy: Bluetooth Low Energy Fundamentals
+
+## Contact
+
+<!-- Add the email you want employers to use, and a LinkedIn link if you have one. -->
+GitHub: [sheetmars](https://github.com/sheetmars)

@@ -1,0 +1,25 @@
+---
+pagetitle: "Matthew McAnanama"
+page-layout: full
+title-block-banner: false
+listing:
+  id: featured
+  contents: projects/*/index.qmd
+  type: default
+  sort: "order"
+  max-items: 4
+  fields: [image, title, description, categories]
+  image-height: 140px
+  categories: false
+---
+
+::: {.column-body}
+{{< include _hero.qmd >}}
+
+## Selected work
+
+::: {#featured}
+:::
+
+[All projects](projects/index.qmd)
+:::
