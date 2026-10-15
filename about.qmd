@@ -2,9 +2,11 @@
 title: "About"
 ---
 
-I'm a third-year Geomatics (geospatial data science) student at the University of Waterloo, with a minor in Computing. I'm looking for co-op placements for the January–April and May–August 2027 terms.
+I'm a third-year Geomatics student at the University of Waterloo, with a minor in Computing. Geomatics brings together most of what I enjoy: computer science, geography, maps and data science.
 
-<!-- Add a few sentences in your own words: what draws you to geospatial and sensing work, and what you want to build. -->
+I like making things, whether that's code, a map, or a 3D view of a LiDAR point cloud, and I enjoy finding the visualization that makes a dataset click. Sometimes that extends to hardware, like building a GPS logger or writing sensor drivers for a Nordic Thingy:53, so I can collect the data myself.
+
+Next, I want professional experience in remote sensing, especially RPAS, LiDAR and radar, and I'd love to work with geospatial data in less familiar terrain like the Arctic. I'm looking for co-op opportunities where I can build those skills on real-world, meaningful projects. My next co-op terms are back-to-back running from January 2027 to April 2027, and then from May 2027 to August 2027.
 
 ## What I work with
 
@@ -21,5 +23,6 @@ I'm a third-year Geomatics (geospatial data science) student at the University o
 
 ## Contact
 
-<!-- Add the email you want employers to use, and a LinkedIn link if you have one. -->
-GitHub: [sheetmars](https://github.com/sheetmars)
+- **Email:** [matthew.mcananama@protonmail.com](mailto:matthew.mcananama@protonmail.com)
+- **LinkedIn:** [Matthew McAnanama](https://www.linkedin.com/in/matthew-mcananama-5a2633247)
+- **GitHub:** [sheetmars](https://github.com/sheetmars)

@@ -1,6 +1,6 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/projects/index.html",
     "items": [
       "/projects/fire-station-coverage/index.html",
       "/projects/wind-turbine-siting/index.html",
@@ -10,7 +10,7 @@
     ]
   },
   {
-    "listing": "/projects/index.html",
+    "listing": "/index.html",
     "items": [
       "/projects/fire-station-coverage/index.html",
       "/projects/wind-turbine-siting/index.html",

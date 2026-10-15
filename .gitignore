@@ -1,2 +1,7 @@
 /.quarto/
 .DS_Store
+
+**/*.quarto_ipynb
+
+# Local notes, not published
+_local/

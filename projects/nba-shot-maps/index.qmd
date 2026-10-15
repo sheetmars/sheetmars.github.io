@@ -2,7 +2,7 @@
 title: "GIS on a basketball court: shot accuracy maps"
 description: "Hexagon shot-percentage maps on a custom court coordinate system, comparing players and seasons."
 image: lowry.jpg
-categories: [ArcGIS Pro, Tessellation, Custom coordinate systems]
+categories: [GIS analysis, ArcGIS Pro, Coursework]
 order: 5
 date: 2025-06-20
 ---
@@ -29,6 +29,8 @@ Shot locations come in court coordinates, not latitude and longitude. I used a c
 :::
 
 Lowry was most accurate around the left, top and top-right of the three-point line, while the team as a whole was strongest just inside the arc. Removing Lowry barely changes the team map because his shots are a small share of the total.
+
+## Comparing LeBron James vs Michael Jordan's last game
 
 ::: {layout-ncol=2}
 ![LeBron James, 2022–23.](lebron.jpg)
