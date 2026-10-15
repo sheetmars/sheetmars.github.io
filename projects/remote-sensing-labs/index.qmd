@@ -1,0 +1,79 @@
+---
+title: "Remote sensing toolkit: classification, radar and LiDAR"
+description: "Land-cover classification from Landsat 8, Sentinel-1 change detection and InSAR elevation, and LiDAR point-cloud processing."
+image: lidar-classified-3d.jpg
+categories: [Remote sensing, Coursework]
+order: 40
+date: 2026-03-29
+---
+
+Three lab projects from my remote sensing course, each with a different sensor: a multispectral satellite, a radar satellite and airborne laser scanning.
+
+<dl class="facts">
+<dt>Tools</dt><dd>ArcGIS Pro (supervised, unsupervised and object-based classification), ESA SNAP (SAR and InSAR processing), LAStools (point-cloud classification and rasterising)</dd>
+<dt>Data</dt><dd>Landsat 8 OLI, Copernicus Sentinel-1, airborne LiDAR with a colour-infrared orthophoto</dd>
+<dt>Context</dt><dd>Individual coursework, GEOG 371, University of Waterloo, Winter 2026</dd>
+</dl>
+
+## 1. Comparing land-cover classifiers, Hamilton–Burlington
+
+I classified a Landsat 8 scene of Hamilton and Burlington into seven land-cover classes (water, forest, other vegetation, light and dark bare soil, residential, and commercial/industrial). I used five methods, trained on the same samples, and assessed each against 425 check points.
+
+| Method | Overall accuracy | Kappa |
+|---|---:|---:|
+| Object-based SVM | 90.1 % | 0.88 |
+| Random trees (per-pixel) | 89.6 % | 0.88 |
+| Support vector machine (per-pixel) | 89.2 % | 0.87 |
+| Maximum likelihood (per-pixel) | 82.8 % | 0.80 |
+| ISO Cluster (unsupervised) | Very low | n/a |
+
+: {.result-table}
+
+::: {layout-ncol=2}
+![The five classifiers compared over water and shoreline, beside a false-colour composite.](classifiers-water.jpg)
+
+![The same comparison over an urban area. Several classifiers confuse road edges with bare soil, and the object-based result is blocky.](classifiers-urban.jpg)
+:::
+
+Water was classified almost perfectly because its spectral signature is so distinct. The main confusion was between forest and other vegetation, and between light and dark soil. The most useful lesson was about **assessment**. The unsupervised result looked reasonable on the map but scored very poorly against the check points, and the object-based result scored best despite looking blocky. Points sample single pixels, so polygon-based or denser check samples would give a fairer accuracy measure.
+
+## 2. Radar: forest change and InSAR elevation
+
+**Forest change.** I compared Sentinel-1 scenes from February 2017 and February 2018 over forest in Roraima, Brazil, using a speckle-filtered RGB composite (R = VH, G = VV, B = VH/VV). VH responds to canopy volume and VV to bare surfaces, so the composite shows canopy as green and gaps as brown. This made the change in cover between the two years easy to see.
+
+::: {layout-ncol=2}
+![2017 composite (R = VH, G = VV, B = VH/VV).](sar-rgb-2017.jpg)
+
+![2018 composite with the same band assignment, showing more continuous canopy.](sar-rgb-2018.jpg)
+:::
+
+**Elevation from interferometry.** From a Sentinel-1 pair six days apart (perpendicular baseline 174 m), I generated an interferogram, unwrapped the phase, converted it to elevation, and compared the result with the SRTM DEM. Areas of high coherence gave clean fringes, and the InSAR DEM reproduced the main terrain seen in SRTM. Low-coherence areas produced noise, and the unwrapping showed faint tile seams.
+
+::: {layout-ncol=2}
+![Wrapped interferogram (top) and unwrapped phase (bottom).](insar-unwrapping.jpg)
+
+![Coherence (top), SRTM DEM (middle) and the Sentinel-1 InSAR DEM (bottom).](insar-dem.jpg)
+:::
+
+## 3. LiDAR: classifying a point cloud, Laurel Creek, Waterloo
+
+With LAStools, I classified a 1.2-million-return airborne LiDAR tile into ground, high vegetation and buildings. I then built a bare-earth DEM, a surface model and height-above-ground rasters at 0.5 m, using the Laurel Creek outline as a breakline.
+
+::: {layout-ncol=2}
+![Classified point cloud: ground (brown), high vegetation (green), buildings (orange), unclassified (grey).](lidar-classified.jpg)
+
+![The same cloud in 3D.](lidar-classified-3d.jpg)
+:::
+
+| Class | Points |
+|---|---:|
+| Ground | 531,705 |
+| High vegetation | 418,011 |
+| Buildings | 89,906 |
+| Unclassified (mostly walls and low objects) | 165,615 |
+
+: {.result-table}
+
+![Height above ground for trees and buildings, with the six features I checked against field measurements.](lidar-heights.jpg)
+
+I compared heights from the LiDAR rasters with field-measured heights for three trees and three buildings. Four of the six agreed to within about 1.6 m. One tree was off by 2–3 m and one building by over 4 m, which shows how much a single point measurement depends on where on the feature it's taken. Water returned no points because the scanner's near-infrared pulse is absorbed by water.

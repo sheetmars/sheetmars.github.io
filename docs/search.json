@@ -84,11 +84,67 @@
     "text": "Limitations\n\nThe 1–5 scores for each buffer ring are assumptions. A real study would base setbacks on Ontario’s renewable energy regulations and add constraints like protected areas and grid connection.\nWind Atlas data is a modelled long-term average at 30 m, below a modern turbine’s hub height."
   },
   {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Projects",
+    "objectID": "projects/waterloo-occurrences/index.html",
+    "href": "projects/waterloo-occurrences/index.html",
+    "title": "Mapping police occurrences in Waterloo Region",
     "section": "",
-    "text": "Where should the next fire station go?\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nNetwork analysis of fire response times in Waterloo Region, comparing two proposed station sites.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSiting wind farms in Huron County\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nMulti-criteria raster suitability model with a 54-run weight sensitivity analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGeocoding 24 years of Kitchener building permits\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nGeocoding about 72,500 permit records to map where and when new construction happened, 1999–2022.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMapping police occurrences in Waterloo Region\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nComparing hexagon choropleths and graduated symbols for 2023 police occurrence data.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS on a basketball court: shot accuracy maps\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nHexagon shot-percentage maps on a custom court coordinate system, comparing players and seasons.\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Total 2023 occurrences in 0.5 km² hexagons, with an inset of the City of Waterloo."
+  },
+  {
+    "objectID": "projects/waterloo-occurrences/index.html#approach",
+    "href": "projects/waterloo-occurrences/index.html#approach",
+    "title": "Mapping police occurrences in Waterloo Region",
+    "section": "Approach",
+    "text": "Approach\nThe occurrence CSV stored each location as one UTM “easting, northing” text field, which ArcGIS Pro can’t plot. I split it into separate coordinate columns, converted the records to points, and aggregated them to a 0.5 km² hexagon grid. I mapped total occurrences and individual types (assaults, fires and others) two ways: as a hexagon choropleth and as graduated symbols. Each map includes an inset of the City of Waterloo around the two universities and the college."
+  },
+  {
+    "objectID": "projects/waterloo-occurrences/index.html#choropleth-vs-graduated-symbols",
+    "href": "projects/waterloo-occurrences/index.html#choropleth-vs-graduated-symbols",
+    "title": "Mapping police occurrences in Waterloo Region",
+    "section": "Choropleth vs graduated symbols",
+    "text": "Choropleth vs graduated symbols\n\n\n\n\n\n\nTotal occurrences as a hexagon choropleth.\n\n\n\n\n\n\n\nTotal occurrences as graduated symbols.\n\n\n\n\n\n\n\n\n\nAssaults as a hexagon choropleth.\n\n\n\n\n\n\n\nAssaults as graduated symbols."
+  },
+  {
+    "objectID": "projects/waterloo-occurrences/index.html#results",
+    "href": "projects/waterloo-occurrences/index.html#results",
+    "title": "Mapping police occurrences in Waterloo Region",
+    "section": "Results",
+    "text": "Results\nOccurrences concentrate in the cores of Kitchener, Waterloo and Cambridge, with cells reaching several times the counts of the surrounding townships. Around the post-secondary campuses, activity clusters along University Avenue between Wilfrid Laurier and the east side of the University of Waterloo, the busiest stretch between the institutions."
+  },
+  {
+    "objectID": "projects/waterloo-occurrences/index.html#limitations",
+    "href": "projects/waterloo-occurrences/index.html#limitations",
+    "title": "Mapping police occurrences in Waterloo Region",
+    "section": "Limitations",
+    "text": "Limitations\n\nThese are raw counts. Because the cities hold most of the population, counts largely track where people are. Dividing by population or by daytime activity would show where occurrences are disproportionately high.\nRecorded occurrences depend on reporting, so lower counts in rural areas partly reflect fewer people around to report incidents."
+  },
+  {
+    "objectID": "projects/remote-sensing-labs/index.html",
+    "href": "projects/remote-sensing-labs/index.html",
+    "title": "Remote sensing toolkit: classification, radar and LiDAR",
+    "section": "",
+    "text": "Three lab projects from my remote sensing course, each with a different sensor: a multispectral satellite, a radar satellite and airborne laser scanning."
+  },
+  {
+    "objectID": "projects/remote-sensing-labs/index.html#comparing-land-cover-classifiers-hamiltonburlington",
+    "href": "projects/remote-sensing-labs/index.html#comparing-land-cover-classifiers-hamiltonburlington",
+    "title": "Remote sensing toolkit: classification, radar and LiDAR",
+    "section": "1. Comparing land-cover classifiers, Hamilton–Burlington",
+    "text": "1. Comparing land-cover classifiers, Hamilton–Burlington\nI classified a Landsat 8 scene of Hamilton and Burlington into seven land-cover classes (water, forest, other vegetation, light and dark bare soil, residential, and commercial/industrial). I used five methods, trained on the same samples, and assessed each against 425 check points.\n\n\n\nMethod\nOverall accuracy\nKappa\n\n\n\n\nObject-based SVM\n90.1 %\n0.88\n\n\nRandom trees (per-pixel)\n89.6 %\n0.88\n\n\nSupport vector machine (per-pixel)\n89.2 %\n0.87\n\n\nMaximum likelihood (per-pixel)\n82.8 %\n0.80\n\n\nISO Cluster (unsupervised)\nVery low\nn/a\n\n\n\n\n\n\n\n\n\nThe five classifiers compared over water and shoreline, beside a false-colour composite.\n\n\n\n\n\n\n\nThe same comparison over an urban area. Several classifiers confuse road edges with bare soil, and the object-based result is blocky.\n\n\n\n\n\nWater was classified almost perfectly because its spectral signature is so distinct. The main confusion was between forest and other vegetation, and between light and dark soil. The most useful lesson was about assessment. The unsupervised result looked reasonable on the map but scored very poorly against the check points, and the object-based result scored best despite looking blocky. Points sample single pixels, so polygon-based or denser check samples would give a fairer accuracy measure."
+  },
+  {
+    "objectID": "projects/remote-sensing-labs/index.html#radar-forest-change-and-insar-elevation",
+    "href": "projects/remote-sensing-labs/index.html#radar-forest-change-and-insar-elevation",
+    "title": "Remote sensing toolkit: classification, radar and LiDAR",
+    "section": "2. Radar: forest change and InSAR elevation",
+    "text": "2. Radar: forest change and InSAR elevation\nForest change. I compared Sentinel-1 scenes from February 2017 and February 2018 over forest in Roraima, Brazil, using a speckle-filtered RGB composite (R = VH, G = VV, B = VH/VV). VH responds to canopy volume and VV to bare surfaces, so the composite shows canopy as green and gaps as brown. This made the change in cover between the two years easy to see.\n\n\n\n\n\n\n2017 composite (R = VH, G = VV, B = VH/VV).\n\n\n\n\n\n\n\n2018 composite with the same band assignment, showing more continuous canopy.\n\n\n\n\n\nElevation from interferometry. From a Sentinel-1 pair six days apart (perpendicular baseline 174 m), I generated an interferogram, unwrapped the phase, converted it to elevation, and compared the result with the SRTM DEM. Areas of high coherence gave clean fringes, and the InSAR DEM reproduced the main terrain seen in SRTM. Low-coherence areas produced noise, and the unwrapping showed faint tile seams.\n\n\n\n\n\n\nWrapped interferogram (top) and unwrapped phase (bottom).\n\n\n\n\n\n\n\nCoherence (top), SRTM DEM (middle) and the Sentinel-1 InSAR DEM (bottom)."
+  },
+  {
+    "objectID": "projects/remote-sensing-labs/index.html#lidar-classifying-a-point-cloud-laurel-creek-waterloo",
+    "href": "projects/remote-sensing-labs/index.html#lidar-classifying-a-point-cloud-laurel-creek-waterloo",
+    "title": "Remote sensing toolkit: classification, radar and LiDAR",
+    "section": "3. LiDAR: classifying a point cloud, Laurel Creek, Waterloo",
+    "text": "3. LiDAR: classifying a point cloud, Laurel Creek, Waterloo\nWith LAStools, I classified a 1.2-million-return airborne LiDAR tile into ground, high vegetation and buildings. I then built a bare-earth DEM, a surface model and height-above-ground rasters at 0.5 m, using the Laurel Creek outline as a breakline.\n\n\n\n\n\n\nClassified point cloud: ground (brown), high vegetation (green), buildings (orange), unclassified (grey).\n\n\n\n\n\n\n\nThe same cloud in 3D.\n\n\n\n\n\n\n\n\nClass\nPoints\n\n\n\n\nGround\n531,705\n\n\nHigh vegetation\n418,011\n\n\nBuildings\n89,906\n\n\nUnclassified (mostly walls and low objects)\n165,615\n\n\n\n\n\n\nHeight above ground for trees and buildings, with the six features I checked against field measurements.\n\n\nI compared heights from the LiDAR rasters with field-measured heights for three trees and three buildings. Four of the six agreed to within about 1.6 m. One tree was off by 2–3 m and one building by over 4 m, which shows how much a single point measurement depends on where on the feature it’s taken. Water returned no points because the scanner’s near-infrared pulse is absorbed by water."
   },
   {
     "objectID": "projects/nba-shot-maps/index.html",
@@ -126,39 +182,46 @@
     "text": "Limitations\n\nCells with only a handful of attempts can show 0 % or 100 % by chance. A minimum-attempts threshold, or shading by attempt count, would make the maps more honest."
   },
   {
-    "objectID": "projects/waterloo-occurrences/index.html",
-    "href": "projects/waterloo-occurrences/index.html",
-    "title": "Mapping police occurrences in Waterloo Region",
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects",
     "section": "",
-    "text": "Total 2023 occurrences in 0.5 km² hexagons, with an inset of the City of Waterloo."
+    "text": "Where should the next fire station go?\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nNetwork analysis of fire response times in Waterloo Region, comparing two proposed station sites.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTracking wildfire forest loss with Sentinel-1 radar\n\n\n\nRemote sensing\n\nGoogle Earth Engine\n\nCoursework\n\n\n\nSix years of Sentinel-1 SAR in Google Earth Engine to map forest cover and burned area in northwestern Quebec, 2020–2025.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSiting wind farms in Huron County\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nMulti-criteria raster suitability model with a 54-run weight sensitivity analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRemote sensing toolkit: classification, radar and LiDAR\n\n\n\nRemote sensing\n\nCoursework\n\n\n\nLand-cover classification from Landsat 8, Sentinel-1 change detection and InSAR elevation, and LiDAR point-cloud processing.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGeocoding 24 years of Kitchener building permits\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nGeocoding about 72,500 permit records to map where and when new construction happened, 1999–2022.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMapping police occurrences in Waterloo Region\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nComparing hexagon choropleths and graduated symbols for 2023 police occurrence data.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS on a basketball court: shot accuracy maps\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nHexagon shot-percentage maps on a custom court coordinate system, comparing players and seasons.\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "projects/waterloo-occurrences/index.html#approach",
-    "href": "projects/waterloo-occurrences/index.html#approach",
-    "title": "Mapping police occurrences in Waterloo Region",
+    "objectID": "projects/sar-wildfire-quebec/index.html",
+    "href": "projects/sar-wildfire-quebec/index.html",
+    "title": "Tracking wildfire forest loss with Sentinel-1 radar",
+    "section": "",
+    "text": "2023 forest cover (green) and forest lost since the previous year (red) across the study area, from Sentinel-1 VH/VV backscatter."
+  },
+  {
+    "objectID": "projects/sar-wildfire-quebec/index.html#why-radar",
+    "href": "projects/sar-wildfire-quebec/index.html#why-radar",
+    "title": "Tracking wildfire forest loss with Sentinel-1 radar",
+    "section": "Why radar",
+    "text": "Why radar\nThe 2023 fire season burned large parts of northern Quebec. Optical imagery struggles with exactly what wildfires produce: smoke and cloud. Sentinel-1 is an active C-band radar, so it sees through both, day or night. I chose the VH (cross-polarised) band because it responds to volume scattering in tree canopies, and VV because it picks up surface scattering where the canopy is gone. At the AI assistant’s suggestion, I also added the VH/VV ratio to separate canopy from wetlands, which are common in the region and otherwise look like forest.\n\n\n\nStudy area: roughly 49.5–54.5° N, 74–80° W, from the James Bay coast inland."
+  },
+  {
+    "objectID": "projects/sar-wildfire-quebec/index.html#approach",
+    "href": "projects/sar-wildfire-quebec/index.html#approach",
+    "title": "Tracking wildfire forest loss with Sentinel-1 radar",
     "section": "Approach",
-    "text": "Approach\nThe occurrence CSV stored each location as one UTM “easting, northing” text field, which ArcGIS Pro can’t plot. I split it into separate coordinate columns, converted the records to points, and aggregated them to a 0.5 km² hexagon grid. I mapped total occurrences and individual types (assaults, fires and others) two ways: as a hexagon choropleth and as graduated symbols. Each map includes an inset of the City of Waterloo around the two universities and the college."
+    "text": "Approach\n\nComposites. For each year, I built a median composite of all Sentinel-1 scenes from June to September (widened to May–October when coverage was thin), using both orbit directions to avoid gaps.\nForest threshold. I set the forest threshold from the data itself: the 55th percentile of 2020 VH backscatter. A pixel counts as forest if it is above that threshold and its VH/VV ratio is above −8 dB.\nBurn detection. Comparing each year with the one before, I flagged a pixel as burned if its VH backscatter dropped by more than 2 dB.\nArea. I summed the forest and burned pixels using their true geodetic area, at 500 m resolution to stay within Earth Engine’s computation limits, and converted to km² for each year."
   },
   {
-    "objectID": "projects/waterloo-occurrences/index.html#choropleth-vs-graduated-symbols",
-    "href": "projects/waterloo-occurrences/index.html#choropleth-vs-graduated-symbols",
-    "title": "Mapping police occurrences in Waterloo Region",
-    "section": "Choropleth vs graduated symbols",
-    "text": "Choropleth vs graduated symbols\n\n\n\n\n\n\nTotal occurrences as a hexagon choropleth.\n\n\n\n\n\n\n\nTotal occurrences as graduated symbols.\n\n\n\n\n\n\n\n\n\nAssaults as a hexagon choropleth.\n\n\n\n\n\n\n\nAssaults as graduated symbols."
-  },
-  {
-    "objectID": "projects/waterloo-occurrences/index.html#results",
-    "href": "projects/waterloo-occurrences/index.html#results",
-    "title": "Mapping police occurrences in Waterloo Region",
+    "objectID": "projects/sar-wildfire-quebec/index.html#results",
+    "href": "projects/sar-wildfire-quebec/index.html#results",
+    "title": "Tracking wildfire forest loss with Sentinel-1 radar",
     "section": "Results",
-    "text": "Results\nOccurrences concentrate in the cores of Kitchener, Waterloo and Cambridge, with cells reaching several times the counts of the surrounding townships. Around the post-secondary campuses, activity clusters along University Avenue between Wilfrid Laurier and the east side of the University of Waterloo, the busiest stretch between the institutions."
+    "text": "Results\n\n\n\nForest cover (green, left axis) and newly burned forest (red, right axis) per year. The two axes have very different scales.\n\n\nThe burned-area signal peaks at about 2,400 km² in 2024, with a smaller rise in 2023. Forest cover ranges between about 70,000 and 110,000 km²."
   },
   {
-    "objectID": "projects/waterloo-occurrences/index.html#limitations",
-    "href": "projects/waterloo-occurrences/index.html#limitations",
-    "title": "Mapping police occurrences in Waterloo Region",
-    "section": "Limitations",
-    "text": "Limitations\n\nThese are raw counts. Because the cities hold most of the population, counts largely track where people are. Dividing by population or by daytime activity would show where occurrences are disproportionately high.\nRecorded occurrences depend on reporting, so lower counts in rural areas partly reflect fewer people around to report incidents."
+    "objectID": "projects/sar-wildfire-quebec/index.html#evaluating-the-result",
+    "href": "projects/sar-wildfire-quebec/index.html#evaluating-the-result",
+    "title": "Tracking wildfire forest loss with Sentinel-1 radar",
+    "section": "Evaluating the result",
+    "text": "Evaluating the result\nThe brief asked me to judge the AI-assisted workflow, and the numbers themselves show where it falls short:\n\nForest cover swings more than the landscape can. Forest area rises by 10,000–15,000 km² in single years (2021 and 2025), which is far faster than planting or regrowth could produce a canopy radar would see. The drop from 2021 to 2024 (about 41,000 km²) is also much larger than the burned area detected (about 3,700 km²). Some of that could be harvesting, which this method doesn’t separate from fire, but a threshold set from 2020 data, year-to-year differences in moisture and scene coverage, and gaps in some years’ coverage likely account for much of it.\nTiming. The largest burn signal appears a year after the 2023 fires. Because each year is compared with the previous summer’s composite, fires that happened during or after a summer’s imaging window likely only show up in the next year’s comparison.\nCoarse area estimates. Summing at 500 m keeps the computation within Earth Engine’s limits but blurs small burns and forest edges.\nNo validation. Checking the burned pixels against the national fire perimeter database would turn these results from plausible into measured.\n\nAI use: I used ChatGPT first, and then Claude when ChatGPT’s scripts kept failing. I set the problem, the data choice and the requirements, worked through the empty-layer and memory-limit problems with follow-up prompts, and evaluated the output. The assistant wrote the Earth Engine code."
   },
   {
     "objectID": "projects/fire-station-coverage/index.html",
@@ -200,13 +263,13 @@
     "href": "index.html",
     "title": "Matthew McAnanama",
     "section": "",
-    "text": "Geomatics student at the University of Waterloo. I make passion projects with hardware, software, and firmware, and I turn location data into maps and decisions.\n  See projectsGitHubAbout me\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nNetwork analysis of fire response times in Waterloo Region, comparing two proposed station sites.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nMulti-criteria raster suitability model with a 54-run weight sensitivity analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nGeocoding about 72,500 permit records to map where and when new construction happened, 1999–2022.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nComparing hexagon choropleths and graduated symbols for 2023 police occurrence data.\n\n\n\n\n\n\n\n\nNo matching items\n\nAll projects"
+    "text": "Geomatics student at the University of Waterloo. I make passion projects with hardware, software, and firmware, and I turn location data into maps and decisions.\n  See projectsGitHubAbout me\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nNetwork analysis of fire response times in Waterloo Region, comparing two proposed station sites.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRemote sensing\n\nGoogle Earth Engine\n\nCoursework\n\n\n\nSix years of Sentinel-1 SAR in Google Earth Engine to map forest cover and burned area in northwestern Quebec, 2020–2025.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nMulti-criteria raster suitability model with a 54-run weight sensitivity analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRemote sensing\n\nCoursework\n\n\n\nLand-cover classification from Landsat 8, Sentinel-1 change detection and InSAR elevation, and LiDAR point-cloud processing.\n\n\n\n\n\n\n\n\nNo matching items\n\nAll projects"
   },
   {
     "objectID": "index.html#selected-work",
     "href": "index.html#selected-work",
     "title": "Matthew McAnanama",
     "section": "",
-    "text": "GIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nNetwork analysis of fire response times in Waterloo Region, comparing two proposed station sites.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nMulti-criteria raster suitability model with a 54-run weight sensitivity analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nGeocoding about 72,500 permit records to map where and when new construction happened, 1999–2022.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nComparing hexagon choropleths and graduated symbols for 2023 police occurrence data.\n\n\n\n\n\n\n\n\nNo matching items\n\nAll projects"
+    "text": "GIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nNetwork analysis of fire response times in Waterloo Region, comparing two proposed station sites.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRemote sensing\n\nGoogle Earth Engine\n\nCoursework\n\n\n\nSix years of Sentinel-1 SAR in Google Earth Engine to map forest cover and burned area in northwestern Quebec, 2020–2025.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nMulti-criteria raster suitability model with a 54-run weight sensitivity analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRemote sensing\n\nCoursework\n\n\n\nLand-cover classification from Landsat 8, Sentinel-1 change detection and InSAR elevation, and LiDAR point-cloud processing.\n\n\n\n\n\n\n\n\nNo matching items\n\nAll projects"
   }
 ]

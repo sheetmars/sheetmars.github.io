@@ -3,7 +3,7 @@ title: "Where should the next fire station go?"
 description: "Network analysis of fire response times in Waterloo Region, comparing two proposed station sites."
 image: coverage-all.jpg
 categories: [GIS analysis, ArcGIS Pro, Coursework]
-order: 1
+order: 10
 date: 2025-07-03
 ---
 

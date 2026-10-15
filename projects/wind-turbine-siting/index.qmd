@@ -3,7 +3,7 @@ title: "Siting wind farms in Huron County"
 description: "Multi-criteria raster suitability model with a 54-run weight sensitivity analysis."
 image: suitability.jpg
 categories: [GIS analysis, ArcGIS Pro, Coursework]
-order: 2
+order: 30
 date: 2025-07-24
 ---
 

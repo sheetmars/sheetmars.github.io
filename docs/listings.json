@@ -3,7 +3,9 @@
     "listing": "/projects/index.html",
     "items": [
       "/projects/fire-station-coverage/index.html",
+      "/projects/sar-wildfire-quebec/index.html",
       "/projects/wind-turbine-siting/index.html",
+      "/projects/remote-sensing-labs/index.html",
       "/projects/kitchener-permits/index.html",
       "/projects/waterloo-occurrences/index.html",
       "/projects/nba-shot-maps/index.html"
@@ -13,7 +15,9 @@
     "listing": "/index.html",
     "items": [
       "/projects/fire-station-coverage/index.html",
+      "/projects/sar-wildfire-quebec/index.html",
       "/projects/wind-turbine-siting/index.html",
+      "/projects/remote-sensing-labs/index.html",
       "/projects/kitchener-permits/index.html",
       "/projects/waterloo-occurrences/index.html",
       "/projects/nba-shot-maps/index.html"
