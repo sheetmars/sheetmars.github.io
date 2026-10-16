@@ -11,7 +11,7 @@
     "href": "about.html#what-i-work-with",
     "title": "About",
     "section": "What I work with",
-    "text": "What I work with\nGIS and remote sensing: ArcGIS Pro, QGIS, network analysis, multi-criteria raster overlay, geocoding, Sentinel-1 SAR, Landsat classification, LiDAR\nProgramming: Python (Polars, GeoPandas, Matplotlib), C/C++ for embedded targets, Git\nHardware and firmware: Arduino, Nordic nRF5340 / Thingy:53 with Zephyr RTOS, I2C and SPI sensor drivers, GPS receivers"
+    "text": "What I work with\nGIS and remote sensing: ArcGIS Pro, QGIS, network analysis, multi-criteria raster overlay, geocoding, Sentinel-1 SAR, Landsat classification, LiDAR\nSurveying and photogrammetry: total station, RTK GNSS, differential levelling, stereo DSM and orthoimage generation (PCI Geomatica)\nProgramming: Python (Polars, GeoPandas, Matplotlib), C/C++ for embedded targets, Git\nHardware and firmware: Arduino, Nordic nRF5340 / Thingy:53 with Zephyr RTOS, I2C and SPI sensor drivers, GPS receivers"
   },
   {
     "objectID": "about.html#courses-and-certificates",

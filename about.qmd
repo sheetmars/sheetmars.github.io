@@ -12,6 +12,8 @@ Next, I want professional experience in remote sensing, especially RPAS, LiDAR a
 
 **GIS and remote sensing:** ArcGIS Pro, QGIS, network analysis, multi-criteria raster overlay, geocoding, Sentinel-1 SAR, Landsat classification, LiDAR
 
+**Surveying and photogrammetry:** total station, RTK GNSS, differential levelling, stereo DSM and orthoimage generation (PCI Geomatica)
+
 **Programming:** Python (Polars, GeoPandas, Matplotlib), C/C++ for embedded targets, Git
 
 **Hardware and firmware:** Arduino, Nordic nRF5340 / Thingy:53 with Zephyr RTOS, I2C and SPI sensor drivers, GPS receivers
