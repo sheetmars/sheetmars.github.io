@@ -3,7 +3,7 @@ title: "Tracking wildfire forest loss with Sentinel-1 radar"
 description: "Six years of Sentinel-1 SAR in Google Earth Engine to map forest cover and burned area in northwestern Quebec, 2020–2025."
 image: forest-burn-2023.jpg
 categories: [Remote sensing, Google Earth Engine, Coursework]
-order: 20
+order: 10
 date: 2026-04-02
 ---
 

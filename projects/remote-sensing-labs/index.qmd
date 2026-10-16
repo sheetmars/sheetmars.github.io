@@ -3,7 +3,7 @@ title: "Remote sensing toolkit: classification, radar and LiDAR"
 description: "Land-cover classification from Landsat 8, Sentinel-1 change detection and InSAR elevation, and LiDAR point-cloud processing."
 image: lidar-classified-3d.jpg
 categories: [Remote sensing, Coursework]
-order: 40
+order: 60
 date: 2026-03-29
 ---
 

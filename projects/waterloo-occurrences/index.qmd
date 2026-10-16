@@ -3,7 +3,7 @@ title: "Mapping police occurrences in Waterloo Region"
 description: "Comparing hexagon choropleths and graduated symbols for 2023 police occurrence data."
 image: total-hex.jpg
 categories: [GIS analysis, ArcGIS Pro, Coursework]
-order: 60
+order: 80
 date: 2025-05-21
 ---
 

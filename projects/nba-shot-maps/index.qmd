@@ -3,7 +3,7 @@ title: "GIS on a basketball court: shot accuracy maps"
 description: "Hexagon shot-percentage maps on a custom court coordinate system, comparing players and seasons."
 image: lowry.jpg
 categories: [GIS analysis, ArcGIS Pro, Coursework]
-order: 70
+order: 90
 date: 2025-06-20
 ---
 

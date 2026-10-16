@@ -147,6 +147,76 @@
     "text": "3. LiDAR: classifying a point cloud, Laurel Creek, Waterloo\nWith LAStools, I classified a 1.2-million-return airborne LiDAR tile into ground, high vegetation and buildings. I then built a bare-earth DEM, a surface model and height-above-ground rasters at 0.5 m, using the Laurel Creek outline as a breakline.\n\n\n\n\n\n\nClassified point cloud: ground (brown), high vegetation (green), buildings (orange), unclassified (grey).\n\n\n\n\n\n\n\nThe same cloud in 3D.\n\n\n\n\n\n\n\n\nClass\nPoints\n\n\n\n\nGround\n531,705\n\n\nHigh vegetation\n418,011\n\n\nBuildings\n89,906\n\n\nUnclassified (mostly walls and low objects)\n165,615\n\n\n\n\n\n\nHeight above ground for trees and buildings, with the six features I checked against field measurements.\n\n\nI compared heights from the LiDAR rasters with field-measured heights for three trees and three buildings. Four of the six agreed to within about 1.6 m. One tree was off by 2–3 m and one building by over 4 m, which shows how much a single point measurement depends on where on the feature it’s taken. Water returned no points because the scanner’s near-infrared pulse is absorbed by water."
   },
   {
+    "objectID": "projects/thingy53-sensors/index.html",
+    "href": "projects/thingy53-sensors/index.html",
+    "title": "Sensor drivers to orientation on a Nordic Thingy:53",
+    "section": "",
+    "text": "Question\n\n\nCan I bring up a board’s sensors from their datasheets, and fuse them into a usable orientation estimate?\n\n\nTools\n\n\nC, Zephyr RTOS / nRF Connect SDK v2.5.1, devicetree overlays, Kconfig, I2C and SPI, Zephyr sensor API, SEGGER RTT\n\n\nHardware\n\n\nNordic Thingy:53 (nRF5340 with Bosch BME688, BMM150 and BMI270), nRF5340 DK as programmer and debugger\n\n\nContext\n\n\nPersonal project, after completing Nordic Developer Academy’s nRF Connect SDK and Bluetooth LE Fundamentals courses\nView the code on GitHub"
+  },
+  {
+    "objectID": "projects/thingy53-sensors/index.html#five-apps-each-building-on-the-last",
+    "href": "projects/thingy53-sensors/index.html#five-apps-each-building-on-the-last",
+    "title": "Sensor drivers to orientation on a Nordic Thingy:53",
+    "section": "Five apps, each building on the last",
+    "text": "Five apps, each building on the last\n\n\n\n\n\n\n\n\n#\nSensor\nWhat it does\n\n\n\n\n01\nBME688\nRaw I2C temperature read with factory-calibration compensation (first attempt, started from a course exercise)\n\n\n02\nBME688\nTemperature, pressure and humidity with the full calibration set\n\n\n03\nBMM150\n3-axis magnetic field in µT from the chip’s trim registers\n\n\n04\nBMI270\nAccelerometer and gyroscope through Zephyr’s sensor API, plus static tilt from gravity\n\n\n05\nBMI270 + BMM150\nRoll and pitch from the accelerometer, then heading from the magnetometer projected onto the horizontal plane"
+  },
+  {
+    "objectID": "projects/thingy53-sensors/index.html#what-was-involved",
+    "href": "projects/thingy53-sensors/index.html#what-was-involved",
+    "title": "Sensor drivers to orientation on a Nordic Thingy:53",
+    "section": "What was involved",
+    "text": "What was involved\n\nRegister-level drivers. I read the data and calibration registers straight from the Bosch datasheets, reassembled multi-byte and bit-packed values, and handled signed calibration constants and the sign extension of 13- and 15-bit readings.\nOrder matters. On the BME688, humidity oversampling has to be written before the measurement-control register, because writing that register in forced mode starts a conversion immediately and a later humidity setting is ignored.\nCompensation. The manufacturers’ formulas (the BME688 temperature, pressure and humidity polynomials, and the BMM150’s trim-based X/Y/Z compensation) turn raw ADC counts into physical units. A total field of about 60 µT was a good sanity check against Earth’s field.\nSensor fusion. Roll and pitch come from the gravity vector. Heading comes from projecting the magnetic field onto the horizontal plane using roll and pitch, so tilting the board doesn’t change the reported heading."
+  },
+  {
+    "objectID": "projects/thingy53-sensors/index.html#results",
+    "href": "projects/thingy53-sensors/index.html#results",
+    "title": "Sensor drivers to orientation on a Nordic Thingy:53",
+    "section": "Results",
+    "text": "Results\n\nSensor readings (apps 01–04)\nEach driver was checked against what the physical quantity should be. Readings are from the RTT console with the board sitting still on a desk indoors.\n\n\n\n\n\n\n\n\nApp\nReading\nSanity check\n\n\n\n\n01\n22.96 °C\nPlausible room temperature, steady to within 0.02 °C between samples\n\n\n02\n23.06 °C, 100.42 kPa, 51.9 % RH\nPressure within the normal range for air near the ground; humidity typical indoors\n\n\n03\nX −19.8, Y 11.4, Z −57.0 µT; total 61.4 µT\nInside Earth’s field range of about 25–65 µT. Z dominates, as expected at this latitude, where the field points steeply downward\n\n\n04\nAccel Z −9.86 m/s²; gyro below 0.01 rad/s\nGravity is 9.81 m/s². The gyro reads near zero at rest; the small offset is bias\n\n\n\nApp 01 had calibration bugs: one constant was read from the wrong buffer, and two signed constants were treated as unsigned. I left them as written in 01 and fixed them in 02, so the repo shows the progression.\n\n\nOrientation and heading (app 05)\nWith the board held still, the orientation output behaves as expected: roll reads about ±1.59 rad (±91°) lying on either side, and pitch about ±1.5 rad standing on either end. Turning the board flat through the four compass directions gave these yaw changes:\n\n\n\nTurn (flat, clockwise)\nYaw change\n\n\n\n\nN → E\n−1.70 rad\n\n\nE → S\n−1.66 rad\n\n\nS → W\n−1.38 rad\n\n\nW → N\n−1.55 rad\n\n\n\nEach quarter-turn should be 1.57 rad, and the four steps add up to a full circle, so yaw tracks rotation correctly. It isn’t a compass heading yet, though: it decreases when turning clockwise, and it is measured from the board’s X axis rather than from north."
+  },
+  {
+    "objectID": "projects/thingy53-sensors/index.html#limitations-and-next-steps",
+    "href": "projects/thingy53-sensors/index.html#limitations-and-next-steps",
+    "title": "Sensor drivers to orientation on a Nordic Thingy:53",
+    "section": "Limitations and next steps",
+    "text": "Limitations and next steps\n\nCalibration. The uneven quarter-turns (1.38–1.70 rad) come from missing hard- and soft-iron calibration; nearby metal and the board’s own electronics bias the field.\nTrue north. Heading is magnetic. Correcting it means adding the local declination, about −10° in southern Ontario.\nMotion. Accelerometer-only tilt breaks down while the board is moving. The gyroscope is read but not fused yet; a complementary or Madgwick filter is the next step.\nAI use: AI was mainly used for debugging: finding register, calibration and sign-handling errors in the drivers. It occasionally helped me interpret register descriptions. The register maps and compensation formulas come from the Bosch datasheets, and the sensor bring-up and the progression to sensor fusion were my own work."
+  },
+  {
+    "objectID": "projects/gps-data-logger/index.html",
+    "href": "projects/gps-data-logger/index.html",
+    "title": "GPS and temperature field logger",
+    "section": "",
+    "text": "The logged drive between Burlington and Hamilton, about 7,300 fixes at 1 Hz, coloured by GPS elevation. Basemap tiles © Esri and contributors.\nView the code on GitHub"
+  },
+  {
+    "objectID": "projects/gps-data-logger/index.html#why-i-built-it",
+    "href": "projects/gps-data-logger/index.html#why-i-built-it",
+    "title": "GPS and temperature field logger",
+    "section": "Why I built it",
+    "text": "Why I built it\nI wanted to practise the full path from sensor to deliverable: wiring the hardware, writing the firmware, collecting data in the field, then parsing, fusing and transforming it into something useful. The test was a two-hour round-trip drive between Burlington and Hamilton, Ontario.\n\n\n\nThe logger: an Arduino Uno with the GPS and SD logging shield, external antenna and TMP36 sensor."
+  },
+  {
+    "objectID": "projects/gps-data-logger/index.html#how-it-works",
+    "href": "projects/gps-data-logger/index.html#how-it-works",
+    "title": "GPS and temperature field logger",
+    "section": "How it works",
+    "text": "How it works\nFirmware. The sketch reads NMEA sentences from the GPS on a timer interrupt and writes the RMC and GGA sentences to the SD card once per second. Every 10 seconds, when the GPS has a fix, it reads the TMP36 and writes a timestamped line to a separate log. It is based on Adafruit’s shield_sdlog example; I added the temperature sensor, the second log file and the fix-gated logging.\nProcessing. A Python script (also available as a notebook):\n\nParses the raw $GPGGA sentences for UTC time, satellite count, position (converted from degrees and decimal minutes) and altitude, and $GPRMC for speed over ground.\nFuses the 0.1 Hz temperature stream with the 1 Hz position stream by joining on time and linearly interpolating temperature to 1 Hz.\nTransforms WGS84 geodetic coordinates to Earth-Centred Earth-Fixed (X, Y, Z), then rotates them into a local East-North-Up frame with its origin at the first fix.\nPlots the drive in all three frames."
+  },
+  {
+    "objectID": "projects/gps-data-logger/index.html#results",
+    "href": "projects/gps-data-logger/index.html#results",
+    "title": "GPS and temperature field logger",
+    "section": "Results",
+    "text": "Results\n\n\n\n\n\n\nECEF: the global Cartesian frame, in metres from Earth’s centre. Correct, but hard to read at site scale.\n\n\n\n\n\n\n\nENU: metres east, north and up from the first fix, which reads directly at site scale.\n\n\n\n\n\nThe ENU view is the practical one for local work: every position reads as metres east, north and up from a chosen origin, which is how a survey or a robot would use it. ECEF is the necessary intermediate step. The climb onto the Niagara Escarpment on the Hamilton side shows clearly in the vertical axis."
+  },
+  {
+    "objectID": "projects/gps-data-logger/index.html#notes-and-limitations",
+    "href": "projects/gps-data-logger/index.html#notes-and-limitations",
+    "title": "GPS and temperature field logger",
+    "section": "Notes and limitations",
+    "text": "Notes and limitations\n\nPrivacy: the published logs are trimmed to remove everything within 1.5 km of the start and end points.\nElevation comes from single-frequency GPS, so it is noisy, as the spikes in the ENU plot show.\nTemperature was logged to practise merging datasets with different sampling rates, and isn’t plotted because it varied little over the drive.\nAI use: the parsing and plotting code was written with AI assistance. My focus was the hardware build, field data collection and the geodetic → ECEF → ENU workflow."
+  },
+  {
     "objectID": "projects/nba-shot-maps/index.html",
     "href": "projects/nba-shot-maps/index.html",
     "title": "GIS on a basketball court: shot accuracy maps",
@@ -182,11 +252,32 @@
     "text": "Limitations\n\nCells with only a handful of attempts can show 0 % or 100 % by chance. A minimum-attempts threshold, or shading by attempt count, would make the maps more honest."
   },
   {
+    "objectID": "projects/kitbash-builder/index.html",
+    "href": "projects/kitbash-builder/index.html",
+    "title": "Kitbash Builder: a parts library for 3D-printed miniatures",
+    "section": "",
+    "text": "The Parts Builder: twelve part slots on the left, and the bundle being assembled on the right.\nView the code on GitHub"
+  },
+  {
+    "objectID": "projects/kitbash-builder/index.html#what-it-does",
+    "href": "projects/kitbash-builder/index.html#what-it-does",
+    "title": "Kitbash Builder: a parts library for 3D-printed miniatures",
+    "section": "What it does",
+    "text": "What it does\n\nIndexes once. A single pass reads every STL, measures it, and renders a thumbnail and a lightweight preview mesh into a SQLite database. Reclassifying after that takes seconds and never re-reads the files.\nClassifies by name and size. Keyword rules on file and folder names decide each part’s slot (head, torso, arm, weapon…), its faction and its armour pattern. Measured size checks the guesses: a 12 mm file can’t be a 32 mm figure, whatever it is called.\nCorrects scale. Sculptors export in very different units, so each pack gets a scale factor from its confidently identified parts, and parts are rescaled to match the torso you build around.\nHandles messy downloads. It recognises supported copies, pre-sliced printer plates, revision folders and images saved with a .stl extension, and exports one raw copy of each part.\nLearns from corrections. A review workflow writes a spreadsheet per folder; verdicts imported back override the rules on every later run.\nExtracts archives safely. A companion script unpacks nested downloads without running anything, blocking path traversal, links, executable bits and archive bombs."
+  },
+  {
+    "objectID": "projects/kitbash-builder/index.html#about-the-project",
+    "href": "projects/kitbash-builder/index.html#about-the-project",
+    "title": "Kitbash Builder: a parts library for 3D-printed miniatures",
+    "section": "About the project",
+    "text": "About the project\nI planned and designed this tool for my own hobby of 3D printing and painting miniatures. AI (Claude) wrote all of the code and the documentation. No model files are included in the repository; it is meant for organising a collection you already own."
+  },
+  {
     "objectID": "projects/index.html",
     "href": "projects/index.html",
     "title": "Projects",
     "section": "",
-    "text": "Where should the next fire station go?\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nNetwork analysis of fire response times in Waterloo Region, comparing two proposed station sites.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTracking wildfire forest loss with Sentinel-1 radar\n\n\n\nRemote sensing\n\nGoogle Earth Engine\n\nCoursework\n\n\n\nSix years of Sentinel-1 SAR in Google Earth Engine to map forest cover and burned area in northwestern Quebec, 2020–2025.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSiting wind farms in Huron County\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nMulti-criteria raster suitability model with a 54-run weight sensitivity analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRemote sensing toolkit: classification, radar and LiDAR\n\n\n\nRemote sensing\n\nCoursework\n\n\n\nLand-cover classification from Landsat 8, Sentinel-1 change detection and InSAR elevation, and LiDAR point-cloud processing.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGeocoding 24 years of Kitchener building permits\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nGeocoding about 72,500 permit records to map where and when new construction happened, 1999–2022.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMapping police occurrences in Waterloo Region\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nComparing hexagon choropleths and graduated symbols for 2023 police occurrence data.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS on a basketball court: shot accuracy maps\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nHexagon shot-percentage maps on a custom court coordinate system, comparing players and seasons.\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Tracking wildfire forest loss with Sentinel-1 radar\n\n\n\nRemote sensing\n\nGoogle Earth Engine\n\nCoursework\n\n\n\nSix years of Sentinel-1 SAR in Google Earth Engine to map forest cover and burned area in northwestern Quebec, 2020–2025.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSensor drivers to orientation on a Nordic Thingy:53\n\n\n\nFirmware\n\nZephyr\n\nPersonal project\n\n\n\nRegister-level I2C drivers for three Bosch sensors on Zephyr RTOS, building up to roll, pitch and tilt-compensated heading.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGPS and temperature field logger\n\n\n\nHardware\n\nData processing\n\nPython\n\nPersonal project\n\n\n\nAn Arduino logger that records 1 Hz GPS and temperature, with a Python pipeline that fuses the streams and transforms the track to ECEF and a local ENU frame.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhere should the next fire station go?\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nNetwork analysis of fire response times in Waterloo Region, comparing two proposed station sites.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSiting wind farms in Huron County\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nMulti-criteria raster suitability model with a 54-run weight sensitivity analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRemote sensing toolkit: classification, radar and LiDAR\n\n\n\nRemote sensing\n\nCoursework\n\n\n\nLand-cover classification from Landsat 8, Sentinel-1 change detection and InSAR elevation, and LiDAR point-cloud processing.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGeocoding 24 years of Kitchener building permits\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nGeocoding about 72,500 permit records to map where and when new construction happened, 1999–2022.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMapping police occurrences in Waterloo Region\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nComparing hexagon choropleths and graduated symbols for 2023 police occurrence data.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS on a basketball court: shot accuracy maps\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nHexagon shot-percentage maps on a custom court coordinate system, comparing players and seasons.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKitbash Builder: a parts library for 3D-printed miniatures\n\n\n\nHobby\n\nPython\n\n\n\nA local tool that indexes a library of STL files, classifies and rescales parts, and lets you mix and match them in the browser.\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects/sar-wildfire-quebec/index.html",
@@ -263,13 +354,13 @@
     "href": "index.html",
     "title": "Matthew McAnanama",
     "section": "",
-    "text": "Geomatics student at the University of Waterloo. I make passion projects with hardware, software, and firmware, and I turn location data into maps and decisions.\n  See projectsGitHubAbout me\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nNetwork analysis of fire response times in Waterloo Region, comparing two proposed station sites.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRemote sensing\n\nGoogle Earth Engine\n\nCoursework\n\n\n\nSix years of Sentinel-1 SAR in Google Earth Engine to map forest cover and burned area in northwestern Quebec, 2020–2025.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nMulti-criteria raster suitability model with a 54-run weight sensitivity analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRemote sensing\n\nCoursework\n\n\n\nLand-cover classification from Landsat 8, Sentinel-1 change detection and InSAR elevation, and LiDAR point-cloud processing.\n\n\n\n\n\n\n\n\nNo matching items\n\nAll projects"
+    "text": "Geomatics student at the University of Waterloo. I make passion projects with hardware, software, and firmware, and I turn location data into maps and decisions.\n  See projectsGitHubAbout me\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRemote sensing\n\nGoogle Earth Engine\n\nCoursework\n\n\n\nSix years of Sentinel-1 SAR in Google Earth Engine to map forest cover and burned area in northwestern Quebec, 2020–2025.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFirmware\n\nZephyr\n\nPersonal project\n\n\n\nRegister-level I2C drivers for three Bosch sensors on Zephyr RTOS, building up to roll, pitch and tilt-compensated heading.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHardware\n\nData processing\n\nPython\n\nPersonal project\n\n\n\nAn Arduino logger that records 1 Hz GPS and temperature, with a Python pipeline that fuses the streams and transforms the track to ECEF and a local ENU frame.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nNetwork analysis of fire response times in Waterloo Region, comparing two proposed station sites.\n\n\n\n\n\n\n\n\nNo matching items\n\nAll projects"
   },
   {
     "objectID": "index.html#selected-work",
     "href": "index.html#selected-work",
     "title": "Matthew McAnanama",
     "section": "",
-    "text": "GIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nNetwork analysis of fire response times in Waterloo Region, comparing two proposed station sites.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRemote sensing\n\nGoogle Earth Engine\n\nCoursework\n\n\n\nSix years of Sentinel-1 SAR in Google Earth Engine to map forest cover and burned area in northwestern Quebec, 2020–2025.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nMulti-criteria raster suitability model with a 54-run weight sensitivity analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRemote sensing\n\nCoursework\n\n\n\nLand-cover classification from Landsat 8, Sentinel-1 change detection and InSAR elevation, and LiDAR point-cloud processing.\n\n\n\n\n\n\n\n\nNo matching items\n\nAll projects"
+    "text": "Remote sensing\n\nGoogle Earth Engine\n\nCoursework\n\n\n\nSix years of Sentinel-1 SAR in Google Earth Engine to map forest cover and burned area in northwestern Quebec, 2020–2025.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFirmware\n\nZephyr\n\nPersonal project\n\n\n\nRegister-level I2C drivers for three Bosch sensors on Zephyr RTOS, building up to roll, pitch and tilt-compensated heading.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHardware\n\nData processing\n\nPython\n\nPersonal project\n\n\n\nAn Arduino logger that records 1 Hz GPS and temperature, with a Python pipeline that fuses the streams and transforms the track to ECEF and a local ENU frame.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGIS analysis\n\nArcGIS Pro\n\nCoursework\n\n\n\nNetwork analysis of fire response times in Waterloo Region, comparing two proposed station sites.\n\n\n\n\n\n\n\n\nNo matching items\n\nAll projects"
   }
 ]

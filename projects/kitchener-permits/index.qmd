@@ -3,7 +3,7 @@ title: "Geocoding 24 years of Kitchener building permits"
 description: "Geocoding about 72,500 permit records to map where and when new construction happened, 1999–2022."
 image: permit-map.jpg
 categories: [GIS analysis, ArcGIS Pro, Coursework]
-order: 50
+order: 70
 date: 2025-06-05
 ---
 
